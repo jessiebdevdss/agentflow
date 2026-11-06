@@ -1,0 +1,36 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "agentflow"
+version = "0.1.0"
+description = "AgentFlow: a multi-agent research assistant built on LangGraph with schema-validated tools, retry/recovery, tracing and trajectory evaluation."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Jessie Borras" }]
+dependencies = [
+  "langgraph>=0.4",
+  "pydantic>=2.6",
+  "openai>=1.40",
+  "httpx>=0.27",
+  "tenacity>=8.2",
+  "python-dotenv>=1.0",
+]
+
+[project.optional-dependencies]
+search = ["duckduckgo-search>=6.0"]
+tracing = ["langfuse>=3.0"]
+dev = ["pytest>=8.0"]
+all = ["duckduckgo-search>=6.0", "langfuse>=3.0", "pytest>=8.0"]
+
+[project.scripts]
+agentflow = "agentflow.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/agentflow"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

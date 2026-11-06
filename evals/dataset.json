@@ -1,0 +1,30 @@
+[
+  {
+    "id": "framework-comparison",
+    "question": "How does LangGraph help build controllable multi-agent workflows?",
+    "expected_tools": ["web_search"],
+    "must_include": ["LangGraph"],
+    "max_tool_calls": 6
+  },
+  {
+    "id": "observability",
+    "question": "What should we trace and evaluate when running LLM agents in production with Langfuse?",
+    "expected_tools": ["web_search"],
+    "must_include": ["Langfuse"],
+    "max_tool_calls": 6
+  },
+  {
+    "id": "cost-projection",
+    "question": "If an automation saves $1250 per month and grows 8% per year, what is the monthly saving after 3 years?",
+    "expected_tools": ["web_search", "run_python"],
+    "must_include": ["1574.64"],
+    "max_tool_calls": 6
+  },
+  {
+    "id": "reliability",
+    "question": "What retry and backoff strategy should agent tool calls use to avoid retry storms?",
+    "expected_tools": ["web_search"],
+    "must_include": ["backoff"],
+    "max_tool_calls": 6
+  }
+]
